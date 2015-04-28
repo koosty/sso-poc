@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+
+      layout:decorator="layout_dashboard">
+<head>
+
+    <th:block layout:fragment="css-addition">
+        <link th:href="@{/assets/admin/css/custom.css}" rel="stylesheet" />
+    </th:block>
+</head>
+<body>
+
+<div class="header-content" layout:fragment="header-content">
+    <h2>
+        <i class="fa fa-home"></i>Create User
+    </h2>
+    <div class="breadcrumb-wrapper hidden-xs">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li>
+                <i class="fa fa-user"></i>
+                <a th:href="@{/dashboard/user}">User</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li class="active">Create User</li>
+        </ol>
+    </div>
+</div>
+
+<div class="body-content animated fadeIn"
+     layout:fragment="body-content">
+
+    <div class="callout callout-danger" th:if="${#fields.hasErrors('${userForm.*}')}">
+        <p>Please input the data correctly and submit again</p>
+    </div>
+
+    <div class="panel rounded shadow">
+        <!-- /.panel-heading -->
+        <div class="panel-sub-heading">
+            <!-- 				<div class="callout callout-info"> -->
+            <!-- 					<p> -->
+            <!-- 						Individual form controls automatically receive some global -->
+            <!-- 						styling. All textual -->
+            <!-- 						<code>&lt;input&gt;</code> -->
+            <!-- 						, -->
+            <!-- 						<code>&lt;textarea&gt;</code> -->
+            <!-- 						, and -->
+            <!-- 						<code>&lt;select&gt;</code> -->
+            <!-- 						elements with -->
+            <!-- 						<code>.form-control</code> -->
+            <!-- 						are set to -->
+            <!-- 						<code>width: 100%;</code> -->
+            <!-- 						by default. Wrap labels and controls in -->
+            <!-- 						<code>.form-group no-margin</code> -->
+            <!-- 						for optimum spacing. -->
+            <!-- 					</p> -->
+            <!-- 				</div> -->
+
+        </div>
+        <!-- /.panel-subheading -->
+        <div class="panel-body no-padding">
+
+            <form action="#" th:action="@{/dashboard/user/save}"
+                  th:object="${userForm}" method="post">
+
+                <div class="form-body">
+
+                    <div class="form-group" th:classappend="${#fields.hasErrors('login')} ? 'has-error has-feedback'">
+                        <label class="control-label">Username</label>
+                        <input th:readonly="${isEdit}" type="text" name="login" class="form-control" th:field="*{login}" />
+                        <span th:if="${#fields.hasErrors('login')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <label for="login" class="error" style="display: block" th:each="err : ${#fields.errors('login')}" th:text="${err}"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input type="text" class="form-control" th:field="*{firstName}" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" class="form-control" th:field="*{lastName}" />
+                    </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('email')} ? 'has-error has-feedback'">
+                        <label class="control-label">Email</label>
+                        <input type="text" class="form-control" th:field="*{email}" />
+                        <span th:if="${#fields.hasErrors('email')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <label class="error" style="display: block" th:each="err : ${#fields.errors('email')}" th:text="${err}"/>
+                    </div>
+
+                    <div th:if="${isEdit == true}" class="form-group" th:classappend="${#fields.hasErrors('password')} ? 'has-error has-feedback'">
+                        <label class="control-label">Password</label>
+                        <input type="password" class="form-control" th:field="*{password}" />
+                        <span th:if="${#fields.hasErrors('password')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <label class="error" style="display: block" th:each="err : ${#fields.errors('password')}" th:text="${err}"/>
+                    </div>
+                    <div th:if="${isEdit == true}" class="form-group" th:classappend="${#fields.hasErrors('password2')} ? 'has-error has-feedback'">
+                        <label class="control-label">Re-enter Password</label>
+                        <input type="password" class="form-control" th:field="*{password2}" />
+                        <span th:if="${#fields.hasErrors('password2')}" class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <label class="error" style="display: block" th:each="err : ${#fields.errors('password2')}" th:text="${err}"/>
+                    </div>
+
+                    <div th:if="${isEdit == true}" class="form-group">
+                        <label class="control-label">Status</label>
+                        <div class="checkbox checkbox-fixer">
+                            <input th:type="checkbox" th:field="*{active}" th:text="Active"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Authority</label>
+                            <div class="checkbox checkbox-fixer" th:each="auth : ${auths}">
+                                <input th:type="checkbox" th:field="*{authorities}" th:value="${auth.name}" th:text="${auth.name}"/>
+                            </div>
+                    </div>
+                    <!-- /.form-group -->
+
+
+                </div>
+                <!-- /.form-body -->
+
+                <div class="form-footer">
+                    <div class="pull-right">
+                        <a th:href="@{../user}">
+                            <input class="btn btn-danger" type="button" th:value="Cancel"/>
+                        </a>
+                        <button class="btn btn-success" type="submit">Save</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- /.form-footer -->
+
+            </form>
+
+        </div>
+        <!-- /.panel-body -->
+    </div>
+
+</div>
+
+<th:block layout:fragment="js-addition">
+    <script th:src="@{/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js}" />
+
+</th:block>
+
+</body>
+</html>

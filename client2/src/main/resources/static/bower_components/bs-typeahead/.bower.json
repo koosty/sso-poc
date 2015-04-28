@@ -1,0 +1,44 @@
+{
+  "name": "bs-typeahead",
+  "version": "0.0.3",
+  "dependencies": {
+    "jquery": ">= 1.9.0",
+    "bootstrap": ">= 3.0.0"
+  },
+  "homepage": "https://github.com/biggora/bootstrap-ajax-typeahead",
+  "authors": [
+    "Twitter Inc. <https://twitter.com/twitteross>",
+    "Paul Warelis <https://github.com/pwarelis>",
+    "Alexey Gordeyev <https://github.com/biggora>"
+  ],
+  "description": "Twitter Bootstrap Ajax Typeahead Plugin",
+  "main": "js/bootstrap-typeahead.js",
+  "keywords": [
+    "typeahead",
+    "bootstrap",
+    "plugin",
+    "autocomplete",
+    "ajax"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo",
+    "src",
+    "Gruntfile.js"
+  ],
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.3",
+    "commit": "8a53c73385df2f055a7e66029137d4e12087cbac"
+  },
+  "_source": "git://github.com/biggora/bootstrap-ajax-typeahead.git",
+  "_target": "~0.0.3",
+  "_originalSource": "bs-typeahead",
+  "_direct": true
+}

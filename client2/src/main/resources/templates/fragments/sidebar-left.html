@@ -1,0 +1,63 @@
+<aside id="sidebar-left" class="sidebar-circle" th:fragment="sidebar-left" ng-controller="MenuController">
+
+	<!-- Start left navigation - profile shortcut -->
+	<div class="sidebar-content">
+		<a href="#" class="close">&times;</a>
+		<div class="media">
+			<a class="pull-left has-notif avatar" href="page-profile.html">
+				<img src="/assets/global/img/avatar/50/26.png" alt="admin" /> <i class="online" />
+			</a>
+			<div class="media-body">
+				<h4 class="media-heading">
+					Halo, <span sec:authentication="name">Lee</span>
+				</h4>
+				Otoritas anda: <small sec:authentication="principal.authorities">Web Designer</small>
+			</div>
+		</div>
+	</div>
+	<!-- /.sidebar-content -->
+	<!--/ End left navigation -  profile shortcut -->
+
+	<!-- Start left navigation - menu -->
+	<ul class="sidebar-menu">
+		<li ng-class="{ active: isActive('/dashboard')}" sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_CLIENT', 'ROLE_ANALYST','ROLE_CONTRIBUTOR')">
+			<a th:href="@{/dashboard}">
+				<span class="icon"> <i class="fa fa-dashboard"></i>
+				</span> <span class="text">Dashboard</span>
+			</a>
+		</li>
+		<li ng-class="{ active: isActive('/dashboard/user')}" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+			<a th:href="@{/dashboard/user}">
+				<span class="icon"> <i class="fa fa-user"></i>
+				</span> <span class="text">User</span>
+			</a>
+		</li>
+		<li ng-class="{ active: isActive('/dashboard/settings')}" sec:authorize="hasAnyRole('ROLE_ADMIN',  'ROLE_ANALYST','ROLE_CONTRIBUTOR')">
+			<a th:href="@{/dashboard/settings}">
+				<span class="icon"> <i class="fa fa-cogs"></i>
+				</span> <span class="text">Settings</span>
+			</a>
+		</li>
+	</ul>
+	<!-- /.sidebar-menu -->
+	<!--/ End left navigation - menu -->
+
+	<!-- Start left navigation - footer -->
+	<div class="sidebar-footer hidden-xs hidden-sm hidden-md">
+		<a class="pull-left" href="#" data-toggle="tooltip" data-placement="top" data-title="Setting">
+			<i class="fa fa-cog"></i>
+		</a>
+		<a id="fullscreen" class="pull-left" href="#" data-toggle="tooltip" data-placement="top" data-title="Fullscreen">
+			<i class="fa fa-desktop"></i>
+		</a>
+		<a class="pull-left" href="page-lock-screen.html" data-toggle="tooltip" data-placement="top" data-title="Lock Screen">
+			<i class="fa fa-lock"></i>
+		</a>
+		<a class="pull-left" href="page-signin.html" data-toggle="tooltip" data-placement="top" data-title="Logout">
+			<i class="fa fa-power-off"></i>
+		</a>
+	</div>
+	<!-- /.sidebar-footer -->
+	<!--/ End left navigation - footer -->
+
+</aside>

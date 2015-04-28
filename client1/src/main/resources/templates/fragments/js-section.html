@@ -1,0 +1,72 @@
+<th:block th:fragment="js-section">
+
+	<th:block th:text="@{/scripts/jquery.2.1.1.min.js}">
+
+	</th:block>
+
+	<!-- START JAVASCRIPT SECTION (Load javascripts at bottom to reduce load time) -->
+	<!-- START @CORE PLUGINS -->
+
+	<!-- 	<script th:src="@{/bower_components/jquery/dist/jquery.js}"></script> -->
+	<!-- 	<script th:src="@{/assets/global/plugins/jquery/jquery.min.js}"></script> -->
+	<script th:src="@{/scripts/jquery.2.1.1.min.js}"></script>
+	<script th:src="@{/bower_components/angular/angular.js}"></script>
+	<script th:src="@{/scripts/app.js}"></script>
+	<script th:src="@{/scripts/controllers.js}"></script>
+	<script th:src="@{/assets/global/plugins/jquery-cookie/jquery.cookie.js}"></script>
+	<script th:src="@{/assets/global/plugins/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/typeahead/handlebars.js}"></script>
+	<script th:src="@{/assets/global/plugins/typeahead/typeahead.bundle.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/jquery-niceScroll/jquery.nicescroll.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/jquery-sparkline/jquery.sparkline.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/jpreloader-v2/js/jpreloader.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/jquery-easing/jquery.easing.1.3.js}"></script>
+	<script th:src="@{/assets/global/plugins/ion-sound/js/ion.sound.min.js}"></script>
+	<!--/ END CORE PLUGINS -->
+
+	<!-- START @PAGE LEVEL PLUGINS -->
+	<script th:src="@{/assets/global/plugins/flot/jquery.flot.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/flot/jquery.flot.spline.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/flot/jquery.flot.categories.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/flot/jquery.flot.tooltip.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/flot/jquery.flot.resize.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/flot/jquery.flot.pie.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/dropzone/dropzone.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/gritter/js/jquery.gritter.min.js}"></script>
+	<script th:src="@{/assets/global/plugins/skycons/skycons.js}"></script>
+	<script>
+            var icons = new Skycons({"color": "white"},{"resizeClear": true}),
+                    list  = [
+                        "clear-day", "clear-night", "partly-cloudy-day",
+                        "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                        "fog"
+                    ],
+                    i;
+
+            for(i = list.length; i--; )
+                icons.set(list[i], list[i]);
+
+            icons.play();
+        </script>
+	<script th:src="@{/bower_components/bootstrap-growl/jquery.bootstrap-growl.js}"></script>
+	<!--/ END PAGE LEVEL PLUGINS -->
+
+	<!-- START @PAGE LEVEL SCRIPTS -->
+	<script th:src="@{/assets/admin/js/apps.js}"></script>
+	<script th:src="@{/assets/admin/js/pages/blankon.dashboard.js}"></script>
+	<script th:src="@{/assets/admin/js/demo.js}"></script>
+	<!--/ END PAGE LEVEL SCRIPTS -->
+	<!--/ END JAVASCRIPT SECTION -->
+
+	<!-- BEGIN GLOBAL FUNCTION -->
+	<script type="text/javascript">
+	
+	function redirect401(){
+	
+		
+	
+	}
+	
+	</script>
+	<!-- END GLOBAL FUNCTION -->
+</th:block>

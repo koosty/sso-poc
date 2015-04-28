@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout_dashboard">
+<head>
+
+</head>
+<body ng-app="talarionApp" ng-controller="MainController" class="page-sound page-header-fixed page-sidebar-fixed page-footer-fixed">
+
+	<div class="header-content" layout:fragment="header-content">
+		<h2>
+			<i class="fa fa-dashboard"></i>Dashboard <span>dashboard &amp; statistics</span>
+		</h2>
+		<div class="breadcrumb-wrapper hidden-xs">
+			<span class="label">You are here:</span>
+			<ol class="breadcrumb">
+				<li class="active">Dashboard</li>
+			</ol>
+		</div>
+	</div>
+
+	<div class="body-content animated fadeIn" layout:fragment="body-content">
+
+
+	</div>
+
+	<th:block layout:fragment="js-addition">
+
+		<script th:src="@{/bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js}"></script>
+		<script th:src="@{/bower_components/highcharts-release/highcharts.js}"></script>
+		<script th:src="@{/bower_components/highcharts-release/modules/exporting.js}"></script>
+
+		<script th:src="@{/scripts/dashboard.js}"></script>
+		<!-- 		<script th:src="@{/scripts/mediareach.js}"></script> -->
+		<!-- 		<script th:src="@{/scripts/buzztrends.js}"></script> -->
+
+	</th:block>
+
+</body>
+</html>

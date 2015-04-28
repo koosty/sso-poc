@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<!-- START @HEAD -->
+<head>
+<!-- START @META SECTION -->
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description"
+	content="Blankon is a theme fullpack admin template powered by Twitter bootstrap 3 front-end framework. Included are multiple example pages, elements styles, and javascript widgets to get your project started." />
+<meta name="keywords" content="" />
+<meta name="author" content="Caliga" />
+<title>Caliga</title>
+<!--/ END META SECTION -->
+
+<th:block th:replace="fragments/css-section :: css-section">
+
+</th:block>
+
+<th:block layout:fragment="css-addition"></th:block>
+
+<!-- START @IE SUPPORT -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+        <![endif]-->
+<!--/ END IE SUPPORT -->
+</head>
+<!--/ END HEAD -->
+
+<!--
+
+    |=========================================================================================================================|
+    |  TABLE OF CONTENTS (Use search to find needed section)                                                                  |
+    |=========================================================================================================================|
+    |  01. @HEAD                        |  Container for all the head elements                                                |
+    |  02. @META SECTION                |  The meta tag provides metadata about the HTML document                             |
+    |  03. @FAVICONS                    |  Short for favorite icon, shortcut icon, website icon, tab icon or bookmark icon    |
+    |  04. @FONT STYLES                 |  Font from google fonts                                                             |
+    |  05. @GLOBAL MANDATORY STYLES     |  The main 3rd party plugins css file                                                |
+    |  06. @PAGE LEVEL STYLES           |  Specific 3rd party plugins css file                                                |
+    |  07. @THEME STYLES                |  The main theme css file                                                            |
+    |  08. @IE SUPPORT                  |  IE support of HTML5 elements and media queries                                     |
+    |=========================================================================================================================|
+    |  09. @BODY                        |  Contains all the contents of an HTML document                                      |
+    |  10. @LOADING ANIMATION           |  Loading animation when the page reload                                             |
+    |  11. @WRAPPER                     |  Wrapping page section                                                              |
+    |  12. @HEADER                      |  Header page section contains about logo, top navigation, notification menu         |
+    |  13. @SIDEBAR LEFT                |  Sidebar page section contains all sidebar menu left                                |
+    |  14. @PAGE CONTENT                |  Contents page section contains breadcrumb, content page, footer page               |
+    |  15. @SIDEBAR RIGHT               |  Sidebar page section contains all sidebar menu right                               |
+    |  16. @BACK TOP                    |  Element back to top and action                                                     |
+    |=========================================================================================================================|
+    |  17. @CORE PLUGINS                |  The main 3rd party plugins script file                                             |
+    |  18. @PAGE LEVEL PLUGINS          |  Specific 3rd party plugins script file                                             |
+    |  19. @PAGE LEVEL SCRIPTS          |  The main theme script file                                                         |
+    |=========================================================================================================================|
+
+    START @BODY
+    |=========================================================================================================================|
+	|  TABLE OF CONTENTS (Apply to body class)                                                                                |
+	|=========================================================================================================================|
+    |  01. page-boxed                   |  Page into the box is not full width screen                                         |
+	|  02. page-header-fixed            |  Header element become fixed position                                               |
+	|  03. page-sidebar-fixed           |  Sidebar element become fixed position with scroll support                          |
+	|  04. page-sidebar-minimize        |  Sidebar element become minimize style width sidebar                                |
+	|  05. page-footer-fixed            |  Footer element become fixed position with scroll support on page content           |
+	|  06. page-sound                   |  For playing sounds on user actions and page events                                 |
+	|=========================================================================================================================|
+
+	-->
+<body ng-app="talarionApp" ng-controller="MainController"
+	class="page-sound page-header-fixed page-sidebar-fixed">
+
+	<!-- START @LOADING ANIMATION -->
+	<div id="loading">
+		<div class="loading-inner">
+			<img th:src="@{/assets/global/img/loader/flat/3.gif}" alt="..." />
+		</div>
+	</div>
+	<!-- /#loading -->
+	<!--/ END LOADING ANIMATION -->
+
+	<!-- START @WRAPPER -->
+	<section id="wrapper">
+
+		<!-- START @HEADER -->
+		<header id="header" th:replace="fragments/header :: header">
+
+		</header>
+		<!-- /#header -->
+		<!--/ END HEADER -->
+
+		<!--
+
+            START @SIDEBAR LEFT
+            |=========================================================================================================================|
+            |  TABLE OF CONTENTS (Apply to sidebar left class)                                                                        |
+            |=========================================================================================================================|
+            |  01. sidebar-box               |  Variant style sidebar left with box icon                                              |
+            |  02. sidebar-rounded           |  Variant style sidebar left with rounded icon                                          |
+            |  03. sidebar-circle            |  Variant style sidebar left with circle icon                                           |
+            |=========================================================================================================================|
+
+            -->
+		<aside id="sidebar-left" class="sidebar-circle"
+			th:replace="fragments/sidebar-left :: sidebar-left"></aside>
+		<!-- /#sidebar-left -->
+		<!--/ END SIDEBAR LEFT -->
+
+		<!-- START @PAGE CONTENT -->
+		<section id="page-content">
+
+			<!-- Start page header -->
+			<div class="header-content" layout:fragment="header-content"></div>
+			<!-- /.header-content -->
+			<!--/ End page header -->
+
+			<!-- Start body content -->
+			<div class="body-content animated fadeIn"
+				layout:fragment="body-content"></div>
+			<!-- /.body-content -->
+			<!--/ End body content -->
+
+			<!-- Start footer content -->
+			<footer class="footer-content"
+				th:replace="fragments/footer :: footer">
+				2014 &copy; Netisen Dev Team. Created by
+				<a href="http://www.netisencorp.com/" target="_blank">netisencorp.com</a>
+			</footer>
+			<!-- /.footer-content -->
+			<!--/ End footer content -->
+
+		</section>
+		<!-- /#page-content -->
+		<!--/ END PAGE CONTENT -->
+
+		<!-- START @SIDEBAR RIGHT -->
+		<aside id="sidebar-right"
+			th:replace="fragments/sidebar-right :: sidebar-right"></aside>
+		<!-- /#sidebar-right -->
+		<!--/ END SIDEBAR RIGHT -->
+
+	</section>
+	<!-- /#wrapper -->
+	<!--/ END WRAPPER -->
+
+	<!-- START @BACK TOP -->
+	<div id="back-top" class="animated pulse circle">
+		<i class="fa fa-angle-up"></i>
+	</div>
+	<!-- /#back-top -->
+	<!--/ END BACK TOP -->
+	<th:block th:replace="fragments/js-section :: js-section">
+
+	</th:block>
+
+	<th:block layout:fragment="js-addition"></th:block>
+
+</body>
+<!--/ END BODY -->
+
+</html>

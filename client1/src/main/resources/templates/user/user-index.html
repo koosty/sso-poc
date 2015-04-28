@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout_dashboard">
+<head>
+
+</head>
+<body>
+
+	<div class="header-content" layout:fragment="header-content">
+
+		<div class="modal modal-danger fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="exampleModalLabel">Confirm Delete</h4>
+					</div>
+					<div class="modal-body">Are you sure?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<a th:href="@{/dashboard/user/delete?id=}" class="btn btn-danger">Delete!</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Modal title</h4>
+					</div>
+					<div class="modal-body">
+						<p>One fine body&hellip;</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-theme">Delete!</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+
+		<h2>
+			<i class="fa fa-user"></i>User
+		</h2>
+		<div class="breadcrumb-wrapper hidden-xs">
+			<span class="label">You are here:</span>
+			<ol class="breadcrumb">
+				<li class="active">User</li>
+			</ol>
+		</div>
+	</div>
+
+	<div class="body-content animated fadeIn" layout:fragment="body-content">
+
+		<div th:if="${statusMessageKey} != null" class="panel rounded shadow">
+			<div class="panel-sub-heading">
+
+				<div class="alert alert-success">
+					<span class="alert-icon"><i class="fa fa-bell-o"></i></span>
+					<div class="notification-info">
+						<th:block th:text="${statusMessageKey}"></th:block>
+					</div>
+				</div>
+
+				<!-- 				<div class="callout callout-info"> -->
+				<!-- 					<p> -->
+				<!-- 						Individual form controls automatically receive some global -->
+				<!-- 						styling. All textual -->
+				<!-- 						<code>&lt;input&gt;</code> -->
+				<!-- 						, -->
+				<!-- 						<code>&lt;textarea&gt;</code> -->
+				<!-- 						, and -->
+				<!-- 						<code>&lt;select&gt;</code> -->
+				<!-- 						elements with -->
+				<!-- 						<code>.form-control</code> -->
+				<!-- 						are set to -->
+				<!-- 						<code>width: 100%;</code> -->
+				<!-- 						by default. Wrap labels and controls in -->
+				<!-- 						<code>.form-group no-margin</code> -->
+				<!-- 						for optimum spacing. -->
+				<!-- 					</p> -->
+				<!-- 				</div> -->
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<a th:href="@{/dashboard/user/detail}" class="btn btn-success">
+							<i class="fa fa-plus-circle"></i> Add
+						</a>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.row -->
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<table id="listTable" class="table table-bordered table-condensed table-hover table-striped">
+							<thead>
+								<tr>
+									<th style="width: 15px">Actions</th>
+									<th>Login</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th>Login</th>
+									<th>Actions</th>
+									<th>First Name</th>
+									<th>Last Name</th>
+									<th>Email</th>
+								</tr>
+							</tfoot>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.row -->
+
+	</div>
+
+	<th:block layout:fragment="js-addition">
+
+		<script th:src="@{/scripts/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/scripts/jquery.dataTables.bootstrap.js}"></script>
+		<script th:src="@{/scripts/datatable.plugins.js}"></script>
+
+		<script th:src="@{/scripts/user.js}"></script>
+	</th:block>
+
+</body>
+</html>
