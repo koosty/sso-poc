@@ -20,6 +20,10 @@ Database Setup:
 	
 Run Applications:
 -----------------
+* copy sso-poc/sso-server/src/main/config/jssecacerts to your JAVA_HOME/jre/lib/security/
+
+> Jasig Cas only works using https protocol, the certificate above is to verify that we are authenticating against the correct server. 
+
 * go to sso-poc/client1 and type
 
 	mvn spring-boot:run -Dspring.profiles.active=liquibase
